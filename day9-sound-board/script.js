@@ -1,25 +1,25 @@
-const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong']
+const sounds = ["applause", "boo", "gasp", "tada", "victory", "wrong"];
 
-sounds.forEach(sound => {
-    const btn = document.createElement('button')
-    btn.classList.add('btn')
+sounds.forEach((sound) => {
+  const button = document.createElement("button");
+  button.innerText = sound;
 
-    btn.innerText = sound
+  button.classList.add('btn')
 
-    btn.addEventListener('click', () => {
-        stopSongs()
+  button.addEventListener('click', () => {
+    stopSongs()
+    
+    document.getElementById(sound).play()
+  })
 
-        document.getElementById(sound).play()
-    })
-
-    document.getElementById('buttons').appendChild(btn)
-})
+  document.getElementById("buttons").appendChild(button);
+});
 
 function stopSongs() {
-    sounds.forEach(sound => {
-        const song = document.getElementById(sound)
+  sounds.forEach((sound) => {
+    const song = document.getElementById(sound);
 
-        song.pause()
-        song.currentTime = 0;
-    })
+    song.pause();
+    song.currentTime = 0;
+  });
 }
